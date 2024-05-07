@@ -1,0 +1,5 @@
+[meta]
+uses_python = true
+uses_ansible = false
+meta_version = "0.7.dev0"
+project_name = "cookiecutter-prefect-template"
