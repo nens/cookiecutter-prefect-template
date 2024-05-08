@@ -18,13 +18,14 @@ Using a "virtualenv" is the standard way of working on python projects in a neat
 
 You can now run `python src/flows.py` and start experimenting. Tasks and flows should inititally go in there (though you may split it over multiple files if handy). `src/server.py` is where you configure how you want to run those flows (as "deployments") on the task runner server in production.
 
-Maintainability and some basic neatness is build-in. Make your life easy and pip-install `pre-commit` globally (and [the vscode editorconfig plugin](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) if you use vscode).
-
-Pre-commit does formatting checks, sorts your imports and so on. Github runs it automatically, so it is handy to do this locally:
+Maintainability and some basic neatness is build-in. Make your life easy and pip-install `pre-commit` globally. Pre-commit does formatting checks, sorts your imports and so on. Github runs it automatically, so it is handy to do this locally first:
 
     $ pre-commit install
 
 This will run pre-commit before every commit, preventing extra work :-)
+
+
+If you use vscode and did the `.venv` thingy above, the python plugin will detect your code and prefect. So you'll have proper code completion! And type hints become more useful. Tip: also install [the vscode editorconfig plugin](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) because that will automatically handle unneeded spaces at the end of lines and other minutia.
 
 
 ## Running it on the server... happens automatically
