@@ -3,6 +3,7 @@ from contextlib import chdir
 from pathlib import Path
 from subprocess import run
 
+import pytest
 from cookiecutter.main import cookiecutter
 
 
@@ -15,8 +16,9 @@ def test_smoke(tmp_path: Path):
     )
 
 
-# TODO: skip this test on windows as it won't work.
 def test_generated_project(tmp_path: Path):
+    if sys.platform.startswith("win"):
+        pytest.skip("Skipping test that uses linux commands")
     cookiecutter(
         template=".",
         output_dir=str(tmp_path),
