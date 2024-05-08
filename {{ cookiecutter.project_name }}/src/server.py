@@ -1,8 +1,7 @@
 import os
 
-from prefect import serve
-
 from flows import example_flow
+from prefect import serve
 
 if __name__ == "__main__":
     assert "PREFECT_API_URL" in os.environ
