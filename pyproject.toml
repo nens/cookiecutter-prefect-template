@@ -10,6 +10,10 @@ select = ["E4", "E7", "E9", "F", "I", "UP"]
 [tool.zest-releaser]
 release = false
 
+[tool.pytest.ini_options]
+# Only look hardcoded at our own files, not in the cookiecutter ones.
+python_files = "test_smoke.py"
+
 [tool.pyright]
 venvPath = "."
 venv = ".venv"
