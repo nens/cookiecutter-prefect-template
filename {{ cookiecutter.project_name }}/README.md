@@ -12,7 +12,8 @@
 Using a "virtualenv" is the standard way of working on python projects in a neat and ordered and time-saving way:
 
     $ python3 -m venv .venv        # Only needed once
-    $ Scripts/activate.bat         # Or however activation works on windows
+    $ Scripts/activate.bat         # Activate on Linux
+    $ .venv\Scripts\activate       # Activate on Windows
     $ pip install -r requirements  # After activation
 
 You can now run `python src/flows.py` and start experimenting. Tasks and flows should inititally go in there (though you may split it over multiple files if handy). `src/server.py` is where you configure how you want to run those flows (as "deployments") on the task runner server in production.
