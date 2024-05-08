@@ -1,7 +1,7 @@
 [meta]
 uses_ansible = false
 uses_python = true
-meta_version = "0.6.dev0"
+meta_version = "0.7.dev0"
 project_name = "{{ cookiecutter.project_name }}"
 
 
