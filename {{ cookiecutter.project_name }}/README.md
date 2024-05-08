@@ -15,7 +15,7 @@ Using a "virtualenv" is the standard way of working on python projects in a neat
     $ Scripts/activate.bat         # Or however activation works on windows
     $ pip install -r requirements  # After activation
 
-You can now run `python src/flows.py` and start experimenting. Tasks and flows should inititally go in there (though you may split it over multiple files if handy). `src/server.py` is where you configure how you want to run those flows (as "deployments") on the task runner server in production.
+You can now run `python src/flows.py` and start experimenting. Tasks and flows should inititally go in `flows.py` and `tasks.py` (though you may split it over multiple files if handy). `src/server.py` is where you configure how you want to run those flows (as "deployments") on the task runner server in production.
 
 Maintainability and some basic neatness is build-in. Make your life easy and pip-install `pre-commit` globally. Pre-commit does formatting checks, sorts your imports and so on. Github runs it automatically, so it is handy to do this locally first:
 
