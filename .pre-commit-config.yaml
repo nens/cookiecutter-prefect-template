@@ -18,7 +18,9 @@ repos:
       # Run the linter.
       - id: ruff
         args: ["--fix"]
+        exclude: ".*cookiecutter.project_name.*"
       # Run the formatter.
       - id: ruff-format
+        exclude: ".*cookiecutter.project_name.*"
 
 ### Extra lines below are preserved ###
