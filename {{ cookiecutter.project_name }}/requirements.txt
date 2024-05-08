@@ -1,1 +1,3 @@
 prefect
+pytest
+python-dotenv
