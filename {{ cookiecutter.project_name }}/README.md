@@ -9,7 +9,22 @@
 
 ## Local development
 
-TODO
+Using a "virtualenv" is the standard way of working on python projects in a neat and ordered and time-saving way:
+
+    $ python3 -m venv .venv        # Only needed once
+    $ Scripts/activate.bat         # Or however activation works on windows
+    $ pip install -r requirements  # After activation
+
+You can now run `python flows.py` and start experimenting. Tasks and flows should inititally go in there (though you may split it over multiple files if handy). `server.py` is where you configure how you want to run those flows (as "deployments") on the task runner server in production.
+
+Maintainability and some basic neatness is build-in. Make your life easy and pip-install `pre-commit` globally (and [the vscode editorconfig plugin](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) if you use vscode).
+
+Pre-commit does formatting checks, sorts your imports and so on. Github runs it automatically, so it is handy to do this locally:
+
+    $ pre-commit install
+
+This will run pre-commit before every commit, preventing extra work :-)
+
 
 ## Running it on the server... happens automatically
 
