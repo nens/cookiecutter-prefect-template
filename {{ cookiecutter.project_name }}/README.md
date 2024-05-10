@@ -24,8 +24,13 @@ Maintainability and some basic neatness is build-in. Make your life easy and pip
 
 This will run pre-commit before every commit, preventing extra work :-)
 
-
 If you use vscode and did the `.venv` thingy above, the python plugin will detect your code and prefect. So you'll have proper code completion! And type hints become more useful. Tip: also install [the vscode editorconfig plugin](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) because that will automatically handle unneeded spaces at the end of lines and other minutia.
+
+There are even tests files (see https://docs.pytest.org/ for instructions), you can use them to test calculations. Ask Reinout or Florian for tips. Don't test whether an ftp download can work, but *do* test when you do some real programming work.
+
+Once the virtualenv is activated, you can run the tests simply with:
+
+    $ pytest
 
 
 ## Running it on the server... happens automatically
