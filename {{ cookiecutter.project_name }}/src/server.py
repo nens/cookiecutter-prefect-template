@@ -3,7 +3,6 @@ import os
 from flows import {{ cookiecutter.__underscore_name }}_example_flow
 from prefect import serve
 
-
 if __name__ == "__main__":
     assert "PREFECT_API_URL" in os.environ
     print(f"Serving flows for {os.environ['PREFECT_API_URL']}")
