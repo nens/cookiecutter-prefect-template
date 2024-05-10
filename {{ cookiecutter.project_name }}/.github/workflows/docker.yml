@@ -25,4 +25,4 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: {% raw %}${{ github.ref == 'refs/heads/main' }}{% endraw %}
-          tags: nens/{{ cookiecutter.project_name }}:main
+          tags: ghcr.io/nens/{{ cookiecutter.project_name }}:main
