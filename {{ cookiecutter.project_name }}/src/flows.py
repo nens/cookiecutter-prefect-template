@@ -12,4 +12,4 @@ def {{ cookiecutter.__underscore_name }}_example_flow(text: str = "Hi"):
 
 if __name__ == "__main__":
     print("Not serving flows, but running them locally for testing")
-    example_flow()
+    {{ cookiecutter.__underscore_name }}_example_flow()
