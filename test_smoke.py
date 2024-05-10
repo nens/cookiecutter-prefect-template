@@ -42,9 +42,10 @@ def test_generated_project(tmp_path: Path):
         no_input=True,
     )
     with chdir(tmp_path / "prefect-my-example"):
+        run(["git", "init"], check=True)
+        run(["git", "add", "-A"], check=True)
         run([sys.executable, "-m", "venv", ".venv"], check=True)
         run([".venv/bin/pip", "install", "-r", "requirements.txt"], check=True)
         run([".venv/bin/pip", "install", "pre-commit"], check=True)
-        run(["git", "init"], check=True)
         run([".venv/bin/pre-commit", "run", "--all"], check=True)
         run([".venv/bin/pytest"], check=True)
