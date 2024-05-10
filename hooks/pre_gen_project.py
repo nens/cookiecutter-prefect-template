@@ -16,3 +16,7 @@ def validate_project_name(name: str = project_name):
     if not name.startswith("prefect-"):
         print("Convention: project_name should start with 'prefect-'")
         sys.exit(1)
+
+
+if __name__ == "__main__":
+    validate_project_name()
