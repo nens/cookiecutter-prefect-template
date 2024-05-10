@@ -1,5 +1,5 @@
 {
-  "project_name": "your-unique-lowercase-project-with-dashes",
+  "project_name": "prefect-your-unique-lowercase-project-with-dashes",
   "project_number": "TRS project number or B&O contract name",
   "__underscore_name": "{{ cookiecutter.project_name|replace('prefect-', '')|replace('-', '_') }}"
 }
