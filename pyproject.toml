@@ -12,7 +12,7 @@ release = false
 
 [tool.pytest.ini_options]
 # Only look hardcoded at our own files, not in the cookiecutter ones.
-python_files = "test_smoke.py"
+python_files = ["test_hooks.py", "test_smoke.py"]
 
 [tool.pyright]
 venvPath = "."

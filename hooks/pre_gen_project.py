@@ -2,18 +2,18 @@
 # https://cookiecutter.readthedocs.io/en/stable/advanced/hooks.html
 import sys
 
-project_name = "{{ cookiecutter.project_name }}"
+PROJECT_NAME = "{{ cookiecutter.project_name }}"
 
 
-def validate_project_name(name: str = project_name):
+def validate_project_name(project_name: str = PROJECT_NAME):
     # Exit if the namne is not correct.
-    if name != name.lower():
+    if project_name != project_name.lower():
         print("Convention: project_name should be all-lowercase")
         sys.exit(1)
-    if "_" in name:
+    if "_" in project_name:
         print("Convention: project_name should use - instead of underscores")
         sys.exit(1)
-    if not name.startswith("prefect-"):
+    if not project_name.startswith("prefect-"):
         print("Convention: project_name should start with 'prefect-'")
         sys.exit(1)
 

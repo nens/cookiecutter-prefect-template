@@ -1,5 +1,6 @@
 import pytest
 
+from hooks.post_gen_project import print_instructions
 from hooks.pre_gen_project import validate_project_name
 
 
@@ -12,3 +13,7 @@ def test_valid_name():
 def test_invalid_name(name: str):
     with pytest.raises(SystemExit):
         validate_project_name(name)
+
+
+def test_print_instructions():
+    print_instructions(project_name="prefect-example-project")
