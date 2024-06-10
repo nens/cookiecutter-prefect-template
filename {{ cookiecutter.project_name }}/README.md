@@ -19,7 +19,7 @@
 
 - To test your flow locally, start a prefect instance within your venv:
 
-    $ prefect server start
+        $ prefect server start
 
 - Run `python src/flows.py` to run your script, or `python src/server.py` to test the deployment.
 
@@ -29,19 +29,19 @@
 
 - Start a local git project:
 
-    $ git init
+        $ git init
 
 - To keep code readable and maintainable, pre-commit is installed. If you have never used it, install globally on your device with:
 
-    $ pip install pre-commit
+        $ pip install pre-commit
 
 - Install the pre-commit for this git repo:
 
-    $ pre-commit install
+        $ pre-commit install
 
 - Commit your code and push it to your new repo. If you have troubles with pre-commit, you can always run it manually with:
 
-    $ pre-commit run --all
+        $ pre-commit run --all
 
 > **_NOTE:_**  You need to fix all the pre-commit problems if it doesn't fix them itself. If pre-commit fails, the docker image build will also fail, and your flow will not be deployed.
 
@@ -58,5 +58,5 @@ There are even tests files (see https://docs.pytest.org/ for instructions), you 
 
 Once the virtualenv is activated, you can run the tests simply with:
 
-    $ pytest
+        $ pytest
 
