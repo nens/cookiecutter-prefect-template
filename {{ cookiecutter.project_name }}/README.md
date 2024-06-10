@@ -8,10 +8,10 @@
 
 - Create a virtual environment and install the requirements.txt:
 
-    $ python3 -m venv .venv            # Only needed once
-    $ .venv\Scripts\activate           # Activate on windows
-    $ source .venv/bin/activate        # Activate on linux
-    $ pip install -r requirements.txt  # Whenever requirements.txt changes
+        $ python3 -m venv .venv            # Only needed once
+        $ .venv\Scripts\activate           # Activate on windows
+        $ source .venv/bin/activate        # Activate on linux
+        $ pip install -r requirements.txt  # Whenever requirements.txt changes
 
 - Write your script in the `src` folder, with your 'main' script in `flows.py`, and tasks in `tasks.py`. Feel free to add new folders or files in the `src` folder.
 
