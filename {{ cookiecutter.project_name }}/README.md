@@ -59,4 +59,3 @@ There are even tests files (see https://docs.pytest.org/ for instructions), you 
 Once the virtualenv is activated, you can run the tests simply with:
 
         $ pytest
-
