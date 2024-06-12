@@ -1,5 +1,3 @@
-import os
-
 from flows import {{ cookiecutter.__underscore_name }}_example_flow
 from prefect import serve
 
