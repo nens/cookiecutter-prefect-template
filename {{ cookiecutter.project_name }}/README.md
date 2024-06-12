@@ -25,7 +25,7 @@
 
 ## Deploying your flow to production
 
-- Create a repo on the nens github with the EXACT same name as your repo. It should start with 'prefect-'.
+- Create the repo: https://github.com/nens/{{ cookiecutter.project_name }}
 
 - Start a local git project:
 
