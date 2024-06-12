@@ -37,7 +37,7 @@ Prefect can be run in multiple ways. Often, the cloud offering is used. We host 
 
 More interesting for this template is how we run the flows+tasks. A common way is to have some task server ("agent", I believe) ready to run dockers or download code or execute locally installed code.
 
-An alternative is to call `.serve()` on a deployment, like we do in the code generated with this template. The code you're working on will then "register" itself with the server and will keep a connection open, waiting for instructions to run.
+An alternative is to call `serve(your_deploy)` on a deployment, like we do in the code generated with this template. The code you're working on will then "register" itself with the server and will keep a connection open, waiting for instructions to run.
 
 We run it ourselves with docker-compose at the moment. Every project generated with the template has a github workflow that builds a docker image. The docker-compose lists all those images. A `prefect.env` environment file with just the `PREFECT_API_URL` env variable is given to the docker (or a different env file with more settings).
 
