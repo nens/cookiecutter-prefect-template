@@ -3,7 +3,7 @@ from tasks import uppercase_the_text
 
 
 @flow(
-    name="{{ cookiecutter.__underscore_name }} Flow",
+    name="Clear name of your flow",
     flow_run_name = "{{ cookiecutter.__underscore_name }} Flow run",
     description= "Short description of what the flow does.",
     retries=0, # If wanted, place your retries count here,
