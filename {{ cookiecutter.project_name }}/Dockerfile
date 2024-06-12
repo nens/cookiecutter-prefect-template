@@ -1,4 +1,4 @@
-FROM python:3.12-bookworm
+FROM python:3.12.3-bookworm
 WORKDIR /code
 LABEL project_name="{{ cookiecutter.project_name }}"
 

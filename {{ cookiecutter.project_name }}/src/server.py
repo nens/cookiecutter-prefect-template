@@ -1,13 +1,15 @@
-from flows import {{ cookiecutter.__underscore_name }}_example_flow
+from flows import {{ cookiecutter.__underscore_name }}_flow
 from prefect import serve
 
 if __name__ == "__main__":
 
-    deploy1 = {{ cookiecutter.__underscore_name }}_example_flow.to_deployment(
-        name="{{ cookiecutter.__underscore_name }}_test-deploy",
-        interval=60,
-        parameters={"text": "Python is absolutely fabulous"},
+    {{ cookiecutter.__underscore_name }}_deployment = {{ cookiecutter.__underscore_name }}_flow.to_deployment(
+        name="Clear name of your deployment",
+        interval=60, # alternative: cron="5 4 * * *". Check crontab.guru to create the correct schedule expression
+        parameters={"text": "Python is absolutely fabulous"}, # Input needs to be convertable to json
+        description="Place a clear description here",
+        tags=["Your name", "Project keyword"] # Add the name of the first point of contact, and one or more keywords of the project
     )
-    # deploy2 = ...
 
-    serve(deploy1)  # serve(deploy1, deploy2)
+
+    serve({{ cookiecutter.__underscore_name }}_deployment)  # It is possible to create multiple deployments and serve them all.
