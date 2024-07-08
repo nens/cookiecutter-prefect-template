@@ -20,6 +20,7 @@ def print_instructions(project_name: str = PROJECT_NAME):
     print("git init")
     print("git add -A")
     print('git commit -m "Generated with cookiecutter"')
+    print('git branch -M main')
     print(f"git remote add origin git@github.com:nens/{project_name}.git")
     print("git push origin")
     print(" ")
