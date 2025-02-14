@@ -30,3 +30,9 @@ jobs:
       - uses: pre-commit/action@v3.0.1
 
 ### Extra lines below are preserved ###
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+      - name: Run tests
+        run: |
+          uv sync
+          uv run pytest
