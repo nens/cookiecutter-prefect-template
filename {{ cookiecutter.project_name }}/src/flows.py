@@ -4,11 +4,11 @@ from tasks import uppercase_the_text
 
 @flow(
     name="Clear name of your flow",
-    flow_run_name = "{{ cookiecutter.__underscore_name }} Flow run",
-    description= "Short description of what the flow does.",
-    retries=0, # If wanted, place your retries count here,
+    flow_run_name="{{ cookiecutter.__underscore_name }} Flow run",
+    description="Short description of what the flow does.",
+    retries=0,  # If wanted, place your retries count here,
     retry_delay_seconds=10,
-    log_prints=True
+    log_prints=True,
 )
 def {{ cookiecutter.__underscore_name }}_flow(text: str = "Hi"):
     uppercase_text = uppercase_the_text(text)
