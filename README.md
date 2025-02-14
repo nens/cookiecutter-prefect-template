@@ -6,7 +6,7 @@ Cookiecutter ([www.cookiecutter.io](https://www.cookiecutter.io/)) generates fre
 
 You need to install the cookiecutter program with pip (or pipx). Then you can call it with the URL of this template's github repo.
 
-    $ pip install "cookiecutter"
+    $ pip install cookiecutter  # Or "uv tool install cookiecutter"
     $ cookiecutter --version  # Should be 2 or higher.
     $ cookiecutter https://github.com/nens/cookiecutter-prefect-template
 
