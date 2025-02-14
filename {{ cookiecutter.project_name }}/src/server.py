@@ -12,7 +12,7 @@ if __name__ == "__main__":
         # ^^^ Input needs to be convertable to json.
         description="Code found at: https://github.com/nens/{{ cookiecutter.project_name }}",
         # ^^^ Place this in EACH deployment, so that it its clear which repo serves which deployment.
-        tags=["Your name", "Project keyword"]
+        tags=["Your name", "Project keyword"],
         # ^^^ Add the name of the first point of contact, and one or more keywords of the project.
     )
 
