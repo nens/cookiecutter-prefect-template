@@ -29,7 +29,7 @@ def test_function_prefix(tmp_path: Path):
     generated_flows_py = tmp_path / "prefect-nens-customer/src/flows.py"
     # We prefix everything with our project name, but want to omit the prefect part.
     print(generated_flows_py.read_text())  # For easier debugging
-    assert "def nens_customer_example_flow" in generated_flows_py.read_text()
+    assert "def nens_customer_flow" in generated_flows_py.read_text()
 
 
 def test_generated_project(tmp_path: Path):
