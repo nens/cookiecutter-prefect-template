@@ -1,8 +1,8 @@
-from flows import {{ cookiecutter.__underscore_name }}_flow
 from prefect import serve
 
-if __name__ == "__main__":
+from flows import {{ cookiecutter.__underscore_name }}_flow
 
+if __name__ == "__main__":
     {{ cookiecutter.__underscore_name }}_deployment = {{ cookiecutter.__underscore_name }}_flow.to_deployment(
         name="Clear name of your deployment",
         interval=60,
