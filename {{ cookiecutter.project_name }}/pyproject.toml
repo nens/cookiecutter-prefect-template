@@ -1,14 +1,14 @@
 [project]
 name = "{{ cookiecutter.project_name }}"
 version = "0.1"
-requires-python = ">= 3.12, <3.13"
+requires-python = ">= 3.11, <3.13"
 # 3.13 is ok after fix to https://github.com/pydantic/pydantic-extra-types/issues/239
 dependencies = [
     "prefect==3.*",
 ]
 
 [tool.ruff]
-target-version = "py312"
+target-version = "py311"
 
 [tool.ruff.lint]
 select = ["E4", "E7", "E9", "F", "I", "UP"]
