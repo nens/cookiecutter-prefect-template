@@ -70,5 +70,4 @@ def test_generated_project_install(tmp_path: Path):
         no_input=True,
     )
     with chdir(tmp_path / "prefect-my-example"):
-        run([sys.executable, "-m", "venv", ".venv"], check=True)
-        run([".venv/bin/pip", "install", "-r", "requirements.txt"], check=True)
+        run(["uv", "sync"], check=True)
