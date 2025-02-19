@@ -43,3 +43,5 @@ docker-compose.override.yml
 
 ### Extra lines below are preserved ###
 !.vscode/launch.json
+!.vscode/settings.json
+!.vscode/extensions.json
