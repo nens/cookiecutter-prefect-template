@@ -18,6 +18,9 @@ def print_instructions(
         f"description=Prefect+tasks+for+{project_number}",
     ]
     creation_url = base_url + "&".join(arguments)
+    print("")
+    print("Hurray!!!")
+    print("")
     print("First, use the following url to a new empty repo on github.")
     print("'Empty' means don't let github generate a readme, .gitignore or license:")
     print("the cookiecutter already has them ready for you.")
