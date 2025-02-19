@@ -5,8 +5,8 @@
 First a little bit of github administration:
 
 - [ ] Just making sure: you created a github repo and did the init/add/push shown after generating the project?
-- [ ] Go to the ["manage access" page](https://github.com/nens/{{ cookiecutter.project_name }}/settings/access) and click "add teams": add the "adviseurs" team with **write** access. Otherwise you're the only one that can work on it.
-- [ ] On that same page, add the team "nelen-schuurmans-pull-only" team with **read** access. Otherwise the server cannot download the docker image.
+- [ ] Go to the ["manage access" page](https://github.com/nens/{{ cookiecutter.project_name }}/settings/access) and click "add teams": add the "adviseurs" team with **write** access. Otherwise you're the only one who can work on it.
+- [ ] On that same page, add the team "nelen-schuurmans-pull-only" with **read** access. Otherwise the server cannot download the docker image.
 
 If you're working on other prefect tasks, you probably have these two installed already:
 
@@ -16,7 +16,7 @@ If you're working on other prefect tasks, you probably have these two installed 
 Lastly a bit of readme cleanup:
 
 - [ ] In the next section, quickly add an initial sentence about the project.
-- [ ] Remove this whole post-generation checklist from the readme :-)
+- [ ] Remove this whole post-generation checklist from the readme. You won't need it anymore as you've diligently checked off every item :-)
 
 
 ## Project documentation
@@ -30,8 +30,8 @@ TODO: add the documentation of your code here, what the aim is, etc.
 
 Some `uv` commands:
 
-    $ uv sync  # Sets up the .venv and does the "pip install".
-    $ uv add your-dependency  # If you need numpy or so, replaces requirements.txt
+    $ uv sync  # Sets up the .venv and does the "pip install"
+    $ uv add your-dependency  # If you need numpy or so; replaces requirements.txt
     $ uv run prefect server start  # "uv run" automatically runs in your .venv
     $ uv run src/tasks.py
 
@@ -52,9 +52,7 @@ Install the pre-commit for this git repo:
 
     $ pre-commit install
 
-This runs pre-commit on every commit, making sure everything is neat. Github also runs it as a sort of test, to make sure no preventable errors end up in the generated docker image.
-
-If you have troubles with pre-commit, you can always run it manually with:
+This runs pre-commit on every commit, making sure everything is neat. Github also runs it as a sort of test, to make sure no preventable errors end up in the generated docker image. If you have troubles with pre-commit, you can always run it manually with:
 
     $ pre-commit run --all
 
