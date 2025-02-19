@@ -17,5 +17,13 @@ def {{ cookiecutter.__underscore_name }}_flow(text: str = "Hi"):
 
 
 if __name__ == "__main__":
+    # This __main__ isn't used on the server, so you can use it for local development.
+    # In vscode, run it with "{{ cookiecutter.__debug_action_name }}" (with a temp
+    # prefect server) or start a prefect server in the terminal with:
+    #
+    # $ uv run prefect server start
+    #
+    # And then run it with "{{ cookiecutter.__localhost_debug_action_name }}".
+    # The output is shown in the "debug console".
     print("Not serving flows, but running them locally for testing")
     {{ cookiecutter.__underscore_name }}_flow()

@@ -5,11 +5,19 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Python Debugger: Current File",
+      "name": "Py debug current file",
       "type": "debugpy",
       "request": "launch",
       "program": "${file}",
       "console": "internalConsole"
+    },
+    {
+      "name": "Py debug current file with prefect on localhost:4200",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "internalConsole",
+      "env": {"PREFECT_API_URL": "http://localhost:4200/api"}
     }
   ]
 }
