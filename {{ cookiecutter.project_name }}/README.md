@@ -1,61 +1,73 @@
 # {{ cookiecutter.project_name }} prefect task
 
-## Project Documentation
+## Post-generation checklist
 
-#TODO: add the documentation of your code here
+First a little bit of github administration:
 
-## Prefect flow development
+- [ ] Just making sure: you created a github repo and did the init/add/push shown after generating the project?
+- [ ] Go to the ["manage access" page](https://github.com/nens/{{ cookiecutter.project_name }}/settings/access) and click "add teams": add the "adviseurs" team with **write** access. Otherwise you're the only one who can work on it.
+- [ ] On that same page, add the team "nelen-schuurmans-pull-only" with **read** access. Otherwise the server cannot download the docker image.
 
-- Create a virtual environment and install the requirements.txt:
+If you're working on other prefect tasks, you probably have these two installed already:
 
-        $ python3 -m venv .venv            # Only needed once
-        $ .venv\Scripts\activate           # Activate on windows
-        $ source .venv/bin/activate        # Activate on linux
-        $ pip install -r requirements.txt  # Whenever requirements.txt changes
+- [ ] Instead of virtualenv&pip, we now use `uv`. It handles the virtualenv, the pip install, pinning versions. It also works much faster. You need to install it, [here are the instructions](https://docs.astral.sh/uv/getting-started/installation/).
+- [ ] Run `uv sync`.
+- [ ] To keep the code readable and maintainable, we use pre-commit. Install it with `pip install pre-commit` .
+- [ ] Set up pre-commit to automatically run before every commit: `pre-commit install` .
 
-- Write your script in the `src` folder, with your 'main' script in `flows.py`, and tasks in `tasks.py`. Feel free to add new folders or files in the `src` folder.
+Lastly a bit of readme cleanup:
 
-- Create a deployment in `python src/server.py`.
+- [ ] In the next section, quickly add an initial sentence about the project.
+- [ ] Remove this whole post-generation checklist from the readme. You won't need it anymore as you've diligently checked off every item :-)
 
-- To test your flow locally, start a prefect instance within your venv:
 
-        $ prefect server start
+## Project documentation
 
-- Run `python src/flows.py` to run your script, or `python src/server.py` to test the deployment.
+Project number: {{ cookiecutter.project_number }}.
+
+TODO: add the documentation of your code here, what the aim is, etc.
+
+
+## Development instructions
+
+Some `uv` commands:
+
+    $ uv sync  # Sets up the .venv and does the "pip install"
+    $ uv add your-dependency  # If you need numpy or so; replaces requirements.txt
+    $ uv run prefect server start  # "uv run" automatically runs in your .venv
+    $ uv run src/flows.py
+    $ uv sync --upgrade  # Allow upgrades to versions.
+
+Write your script in the `src` folder, with your 'main' script in `flows.py`, and tasks
+in `tasks.py`. Feel free to add new folders or files in the `src` folder. Create a
+deployment in `python src/server.py`.
+
+There are test instructions in `flows.py` and `tasks.py`. Running `flows.py` will start a temporary prefect server and run whatever tasks you call in the `__main__`:
+
+    $ uv run src/flows.py
+
+
+## Handy vscode setup: all ready for use
+
+- If you use vscode and did the `uv sync` thingy above, the python plugin will detect   your code and prefect. So you'll have proper code completion! And type hints become more useful. (**Note**: you should have called `uv sync` first, before starting vscode, otherwise you have to select the python version manually: `.venv/bin/python` or so).
+- Vscode will **recommend** "python", "editorconfig" and "ruff" extensions: install them. Vscode will ask about trusting "editorconfig" and "astral software": yes, that's okay. - Editorconfig handles unneeded spaces at the end of lines and other minutia.
+- Ruff formats your code and sorts the imports whenever you save a file. It will also warn about unknown variables or unused imports and offer fixes.
+- The "run and debug" button in the activity bar runs `src/flows.py` against localhost:4200 if you select "{{ cookiecutter.__debug_action_name }}" in the dropdown. See the instructions in `src/flows.py` on how to use it.
+
+Nice, easy, modern development with mostly-automatic formatting and neatness!
+
 
 ## Deploying your flow to production
 
-- Create the repo: https://github.com/nens/{{ cookiecutter.project_name }}
+On every commit to the `main` branch, a new docker image is generated on github *if pre-commit doesn't complain* and *if the docker image can be build*. The server looks for new images every five minutes and downloads+restarts it automatically.
 
-- Start a local git project:
+Should the github action complain about pre-commit, upgrade the config and run it again:
 
-        $ git init
+    $ pre-commit autoupdate
+    $ pre-commit run --all
 
-- To keep code readable and maintainable, pre-commit is installed. If you have never used it, install globally on your device with:
+Should the github action fail on the docker image creation, try that one out locally and fix any errors:
 
-        $ pip install pre-commit
+    $ docker build .
 
-- Install the pre-commit for this git repo:
-
-        $ pre-commit install
-
-- Commit your code and push it to your new repo. If you have troubles with pre-commit, you can always run it manually with:
-
-        $ pre-commit run --all
-
-> **_NOTE:_**  You need to fix all the pre-commit problems if it doesn't fix them itself. If pre-commit fails, the docker image build will also fail, and your flow will not be deployed.
-
-- Add 2 new teams to your github repo: Adviseurs (write) and Nelen & Schuurmans pull only (admin)
-
-- Ask Florian or Reinout to register your new flow.
-
-
-## Optional (but definitely recommended):
-
-If you use vscode and did the `.venv` thingy above, the python plugin will detect your code and prefect. So you'll have proper code completion! And type hints become more useful. Tip: also install [the vscode editorconfig plugin](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) because that will automatically handle unneeded spaces at the end of lines and other minutia.
-
-There are even tests files (see https://docs.pytest.org/ for instructions), you can use them to test calculations. Ask Reinout or Florian for tips. Don't test whether an ftp download can work, but *do* test when you do some real programming work.
-
-Once the virtualenv is activated, you can run the tests simply with:
-
-        $ pytest
+Initially, ask Taj or Reinout to add your new deployment to the [prefect-setup repo](https://github.com/nens/prefect-setup/blob/main/docker-compose.task.yml)_.

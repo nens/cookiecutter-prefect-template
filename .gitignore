@@ -35,10 +35,11 @@ coverage.*
 .pytest_cache
 
 # Pycharm, visual studio
-.idea
-.vscode
+/.idea
+/.vscode
 
 # Docker
 docker-compose.override.yml
 
 ### Extra lines below are preserved ###
+/.envrc

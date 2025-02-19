@@ -1,21 +1,37 @@
 from pathlib import Path
 
 PROJECT_NAME = "{{ cookiecutter.project_name }}"
+PROJECT_NUMBER = "{{ cookiecutter.project_number }}"
 
 
-def print_instructions(project_name: str = PROJECT_NAME):
+def print_instructions(
+    project_name: str = PROJECT_NAME, project_number: str = PROJECT_NUMBER
+):
     # This hook is executed inside the generated directory.
     current_dir = str(Path(".").absolute())
 
-    print("Go to https://github.com/orgs/nens/repositories and create a new empty repo")
-    print(f"called '{project_name}'. 'Empty' means don't let github generate a readme")
-    print("or a .gitignore, the cookiecutter already has them ready for you.")
+    base_url = "https://github.com/new?"
+    arguments = [
+        f"name={project_name}",
+        "owner=nens",
+        "visibility=private",
+        f"description=Prefect+tasks+for+{project_number}",
+    ]
+    creation_url = base_url + "&".join(arguments)
     print("")
-    print("Done?")
+    print("Hurray!!!")
     print("")
-    print("Then go to the generated project and do some git magic:")
+    print("")
+    print("→ First, use the following url to a new empty repo on github.")
+    print("  'Empty' means don't let github generate a readme, .gitignore or license,")
+    print("  the cookiecutter already has them ready for you.")
+    print("")
+    print(creation_url)
+    print("")
     print("")
 
+    print("→ Done? Go to your generated project and do some git magic:")
+    print("")
     print(f"cd {current_dir}")
     print("git init")
     print("git add -A")
@@ -23,7 +39,16 @@ def print_instructions(project_name: str = PROJECT_NAME):
     print("git branch -M main")
     print(f"git remote add origin git@github.com:nens/{project_name}.git")
     print("git push origin")
-    print(" ")
+    print("")
+    print("")
+
+    readme_url = (
+        "https://github.com/nens/{{ cookiecutter.project_name }}/blob/main/README.md"
+    )
+    print("→ Lastly, start on the helpful checklist in the readme:")
+    print("")
+    print(readme_url)
+    print("")
 
 
 if __name__ == "__main__":
