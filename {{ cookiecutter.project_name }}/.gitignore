@@ -36,9 +36,10 @@ coverage.*
 
 # Pycharm, visual studio
 .idea
-.vscode
+.vscode/*
 
 # Docker
 docker-compose.override.yml
 
 ### Extra lines below are preserved ###
+!.vscode/launch.json
