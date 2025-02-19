@@ -12,6 +12,7 @@ If you're working on other prefect tasks, you probably have these two installed 
 
 - [ ] Instead of virtualenv&pip, we now use `uv`. It handles the virtualenv, the pip install, pinning versions. It also works much faster. You need to install it, [here are the instructions](https://docs.astral.sh/uv/getting-started/installation/).
 - [ ] To keep the code readable and maintainable, we use pre-commit. Install it with `pip install pre-commit` .
+- [ ] Set up pre-commit to automatically run before every commit: `pre-commit install` .
 
 Lastly a bit of readme cleanup:
 
@@ -26,44 +27,46 @@ Project number: {{ cookiecutter.project_number }}.
 TODO: add the documentation of your code here, what the aim is, etc.
 
 
-## Prefect flow development
+## Development instructions
 
 Some `uv` commands:
 
     $ uv sync  # Sets up the .venv and does the "pip install"
     $ uv add your-dependency  # If you need numpy or so; replaces requirements.txt
     $ uv run prefect server start  # "uv run" automatically runs in your .venv
-    $ uv run src/tasks.py
+    $ uv run src/flows.py
+    $ uv sync --upgrade  # Allow upgrades to versions.
 
 Write your script in the `src` folder, with your 'main' script in `flows.py`, and tasks
 in `tasks.py`. Feel free to add new folders or files in the `src` folder. Create a
 deployment in `python src/server.py`.
 
-- To test your flow locally, start a prefect instance within your venv:
+There are test instructions in `flows.py` and `tasks.py`. Running `flows.py` will start a temporary prefect server and run whatever tasks you call in the `__main__`:
 
-        $ uv run prefect server start
-
-- Run `uv run src/flows.py` to run your script, or `uv run src/server.py` to test the deployment.
+    $ uv run src/flows.py
 
 
-## Code neatness
+## Handy vscode setup: all ready for use
 
-Install the pre-commit for this git repo:
+- If you use vscode and did the `uv sync` thingy above, the python plugin will detect   your code and prefect. So you'll have proper code completion! And type hints become more useful.
+- Vscode will **recommend** "python", "editorconfig" and "ruff" extensions: install them. Vscode will ask about trusting "editorconfig" and "astral software": yes, that's okay. - Editorconfig handles unneeded spaces at the end of lines and other minutia.
+- Ruff formats your code and sorts the imports whenever you save a file. It will also warn about unknown variables or unused imports and offer fixes.
+- The "run and debug" button in the activity bar runs `src/flows.py` against localhost:4200 if you select "{{ cookiecutter.__debug_action_name }}" in the dropdown. See the instructions in `src/flows.py` on how to use it.
 
-    $ pre-commit install
-
-This runs pre-commit on every commit, making sure everything is neat. Github also runs it as a sort of test, to make sure no preventable errors end up in the generated docker image. If you have troubles with pre-commit, you can always run it manually with:
-
-    $ pre-commit run --all
+Nice, easy, modern development with mostly-automatic formatting and neatness!
 
 
 ## Deploying your flow to production
 
-Ask Taj or Reinout to add your new flow to the [prefect-setup repo](https://github.com/nens/prefect-setup/blob/main/docker-compose.task.yml)_.
+On every commit to the `main` branch, a new docker image is generated on github *if pre-commit doesn't complain* and *if the docker image can be build*. The server looks for new images every five minutes and downloads+restarts it automatically.
 
-On every commit to the `main` branch, a new docker image is generated on github *if pre-commit doesn't complain*. The prefect-setup docker-compose looks for new images every five minutes and downloads+restarts when available.
+Should the github action complain about pre-commit, upgrade the config and run it again:
 
+    $ pre-commit autoupdate
+    $ pre-commit run --all
 
-## Optional (but definitely recommended):
+Should the github action fail on the docker image creation, try that one out locally and fix any errors:
 
-If you use vscode and did the `.venv` thingy above, the python plugin will detect your code and prefect. So you'll have proper code completion! And type hints become more useful. Tip: also install [the vscode editorconfig plugin](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) because that will automatically handle unneeded spaces at the end of lines and other minutia.
+    $ docker build .
+
+Initially, ask Taj or Reinout to add your new deployment to the [prefect-setup repo](https://github.com/nens/prefect-setup/blob/main/docker-compose.task.yml)_.
