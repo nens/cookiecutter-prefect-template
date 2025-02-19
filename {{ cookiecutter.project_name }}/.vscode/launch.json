@@ -5,14 +5,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Py debug current file",
-      "type": "debugpy",
-      "request": "launch",
-      "program": "${file}",
-      "console": "internalConsole"
-    },
-    {
-      "name": "Py debug current file with prefect on localhost:4200",
+      "name": "{{ cookiecutter.__debug_action_name }}",
       "type": "debugpy",
       "request": "launch",
       "program": "${file}",

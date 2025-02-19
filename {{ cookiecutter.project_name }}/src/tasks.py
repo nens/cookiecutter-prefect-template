@@ -1,6 +1,10 @@
 # When using vscode, you can set a breakpoint somewhere in a task to inspect it in
-# detail. Then run the debugger on flows.py. Make sure the task you want to debug is
-# actually called in flows.py, of course :-)
+# detail. Then run the debugger with {{ cookiecutter.__debug_action_name }}
+# selected, this runs flows.py using localhost:4200.
+#
+# - Make sure the task you want to debug is actually called in flows.py, of course :-)
+# - Start prefect as explained in flows.py.
+
 from prefect import task
 
 
