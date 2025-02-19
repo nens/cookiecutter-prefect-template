@@ -8,7 +8,7 @@
       "name": "{{ cookiecutter.__debug_action_name }}",
       "type": "debugpy",
       "request": "launch",
-      "program": "${file}",
+      "program": "${workspaceFolder}/src/flows.py",
       "console": "internalConsole",
       "env": {"PREFECT_API_URL": "http://localhost:4200/api"}
     }
