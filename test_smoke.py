@@ -6,12 +6,18 @@ from subprocess import run
 import pytest
 from cookiecutter.main import cookiecutter
 
+TEST_CONTENTS = {
+    "project_name": "prefect-my-example",
+    "project_number": "R1972",
+    "prefect_version": "3",
+}
+
 
 def test_smoke(tmp_path: Path):
     cookiecutter(
         template=".",
         output_dir=str(tmp_path),
-        extra_context={"project_name": "prefect-my-example", "project_number": "R1972"},
+        extra_context=TEST_CONTENTS,
         no_input=True,
     )
 
@@ -23,6 +29,7 @@ def test_function_prefix(tmp_path: Path):
         extra_context={
             "project_name": "prefect-nens-customer",
             "project_number": "R1972",
+            "prefect_version": "3",
         },
         no_input=True,
     )
@@ -38,7 +45,7 @@ def test_generated_project_ruff(tmp_path: Path):
     cookiecutter(
         template=".",
         output_dir=str(tmp_path),
-        extra_context={"project_name": "prefect-my-example", "project_number": "R1972"},
+        extra_context=TEST_CONTENTS,
         no_input=True,
     )
     with chdir(tmp_path / "prefect-my-example"):
@@ -51,7 +58,7 @@ def test_generated_project_precommit(tmp_path: Path):
     cookiecutter(
         template=".",
         output_dir=str(tmp_path),
-        extra_context={"project_name": "prefect-my-example", "project_number": "R1972"},
+        extra_context=TEST_CONTENTS,
         no_input=True,
     )
     with chdir(tmp_path / "prefect-my-example"):
@@ -66,7 +73,7 @@ def test_generated_project_install(tmp_path: Path):
     cookiecutter(
         template=".",
         output_dir=str(tmp_path),
-        extra_context={"project_name": "prefect-my-example", "project_number": "R1972"},
+        extra_context=TEST_CONTENTS,
         no_input=True,
     )
     with chdir(tmp_path / "prefect-my-example"):
