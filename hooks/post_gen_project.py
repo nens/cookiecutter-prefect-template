@@ -22,7 +22,7 @@ def print_instructions(
     print("Hurray!!!")
     print("")
     print("")
-    print("→ First, copy-paste the following url in your browser:") 
+    print("→ First, copy-paste the following url in your browser:")
     print("")
     print(creation_url)
     print("")
@@ -30,7 +30,7 @@ def print_instructions(
     print(" 'Empty' means don't let github generate a readme, .gitignore or license,")
     print(" the cookiecutter already provides them to you.")
     print("")
-  
+
     print("")
     print("")
 

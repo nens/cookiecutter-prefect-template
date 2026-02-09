@@ -18,11 +18,12 @@ def validate_project_name(project_name: str = PROJECT_NAME):
         print("ERROR: Convention - project_name should start with 'prefect-'")
         sys.exit(1)
 
+
 def validate_prefect_verion(prefect_version: str = PREFECT_VERSION):
     # Exit if prefect version is not 2 or 3
     if prefect_version not in ["2", "3"]:
         print("ERROR: Prefect version must be either 2 or 3")
-        sys.exit(1)        
+        sys.exit(1)
 
 
 if __name__ == "__main__":
