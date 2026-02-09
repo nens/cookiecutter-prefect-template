@@ -26,7 +26,11 @@ def test_function_prefix(tmp_path: Path):
     cookiecutter(
         template=".",
         output_dir=str(tmp_path),
-        extra_context=TEST_CONTENTS,
+        extra_context={
+            "project_name": "prefect-nens-customer",
+            "project_number": "R1972",
+            "prefect_version": "3",
+        },
         no_input=True,
     )
     generated_flows_py = tmp_path / "prefect-nens-customer/src/flows.py"
