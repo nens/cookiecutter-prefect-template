@@ -9,7 +9,7 @@ from cookiecutter.main import cookiecutter
 TEST_CONTENTS = {
     "project_name": "prefect-my-example",
     "project_number": "R1972",
-    "prefect_verion": "3",
+    "prefect_version": "3",
 }
 
 
