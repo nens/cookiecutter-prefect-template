@@ -22,3 +22,6 @@ release = false
 venvPath = "."
 venv = ".venv"
 include = "src"
+
+[tool.prefect]
+home = "~/.prefect{{ cookiecutter.prefect_version }}"
