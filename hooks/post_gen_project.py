@@ -22,11 +22,15 @@ def print_instructions(
     print("Hurray!!!")
     print("")
     print("")
-    print("→ First, use the following url to create a new empty repo on github.")
-    print("  'Empty' means don't let github generate a readme, .gitignore or license,")
-    print("  the cookiecutter already provides them to you.")
+    print("→ First, copy-paste the following url in your browser:") 
     print("")
     print(creation_url)
+    print("")
+    print(" Use this to create a new empty repo on github.")
+    print(" 'Empty' means don't let github generate a readme, .gitignore or license,")
+    print(" the cookiecutter already provides them to you.")
+    print("")
+  
     print("")
     print("")
 
