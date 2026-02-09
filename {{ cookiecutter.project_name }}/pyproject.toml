@@ -5,7 +5,7 @@ requires-python = ">= 3.11, <3.13"
 # 3.13 is ok after fix to https://github.com/pydantic/pydantic-extra-types/issues/239
 dependencies = [
     "prefect=={{ cookiecutter.prefect_version }}.*",
-	"pre-commit",
+    "pre-commit",
 ]
 
 [tool.ruff]
