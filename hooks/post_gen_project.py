@@ -43,7 +43,7 @@ def print_instructions(
     print("git branch -M main")
     print(f"git remote add origin https://github.com/nens/{project_name}.git")
     print(f"# or: git remote add origin git@github.com:nens/{project_name}.git")
-    print("git push origin")
+    print("git push --set-upstream origin main")
     print("")
     print("")
 
