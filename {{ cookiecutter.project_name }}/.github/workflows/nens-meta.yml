@@ -40,6 +40,6 @@ jobs:
       - name: Run tests
         run: |
           uv sync
-          uv run pytest
+          uv run pytest || [ $? -eq 5 ]
 
 ### Extra lines below are preserved ###
